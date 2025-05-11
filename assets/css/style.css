@@ -619,15 +619,7 @@ main { overflow-x: hidden; }
   padding: 5px 25px;
   transition: var(--transition-1);
 }
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-  gap: 16px; /* spacing between items */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  justify-items: center; /* center align the content horizontally */
-}
+
 .toggle-btn.active { color: var(--white); }
 
 .skills-box.active .skills-list,
@@ -707,7 +699,7 @@ main { overflow-x: hidden; }
   padding: 20px;
 }
 
-.project-card .card-title { margin-bottom: 10px; }
+.project-card .card-title { margin-bottom: 10px;}
 
 .project-card :is(.card-title, .publish-date) {
   background: var(--bg-primary);
