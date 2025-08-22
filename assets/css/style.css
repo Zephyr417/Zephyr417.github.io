@@ -1283,7 +1283,7 @@ textarea.input-field {
   .project-list > li:first-child {
     grid-column: span 2;   /* Span across two grid cells */
     grid-row: span 1;      /* Make it visually bigger */
-    max-width: 70%;        /* Approx 45% width */
+    max-width: 95%;        /* Approx 45% width */
     background: var(--bg-primary);
     padding: 0px;
     border-radius: var(--radius-12);
