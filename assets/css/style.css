@@ -669,13 +669,20 @@ main { overflow-x: hidden; }
 
 .project { padding-block: var(--section-padding); }
 
-.project-list > li { margin-bottom: 25px; }
+
 
 .project-card {
+  display: block;
   position: relative;
-  overflow: hidden;
   border-radius: var(--radius-12);
   box-shadow: 2px 4px 6px hsla(0, 0%, 0%, 0.2);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 6px 12px hsla(0, 0%, 0%, 0.3);
 }
 
 .project-card::after {
@@ -699,12 +706,16 @@ main { overflow-x: hidden; }
   padding: 20px;
 }
 
-.project-card .card-title { margin-bottom: 10px;}
+.project-card .card-title {
+  margin-bottom: 10px;
+  white-space: normal;       /* allow text to wrap */
+  word-break: break-word;    /* break long words if needed */
+}
 
 .project-card :is(.card-title, .publish-date) {
   background: var(--bg-primary);
   padding: 6px 12px;
-  width: max-content;
+  width: 100%;
   box-shadow: var(--shadow-1);
   transform: translateY(20px);
   opacity: 0;
@@ -717,7 +728,7 @@ main { overflow-x: hidden; }
   transition-delay: 0s;
 }
 
-.project-card:is(:hover, :focus) :is(.card-title, .publish-date) {
+.project-card:hover :is(.card-title, .publish-date) {
   transform: translateY(0);
   opacity: 1;
 }
@@ -1255,12 +1266,30 @@ textarea.input-field {
    * PROJECT
    */
 
-  .project-list { column-count: 3; }
+   .project-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 🟢 Force 4 columns on large screens */
+    grid-auto-flow: dense; /* 🟢 Allows filling empty gaps elegantly */
+    gap: 0px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+
+  .project-list > li { margin-bottom: 10px; }
+
 
   .project-list > li:first-child {
-    column-span: unset;
-    margin: 25px;
-    margin-left: 0;
+    grid-column: span 2;   /* Span across two grid cells */
+    grid-row: span 1;      /* Make it visually bigger */
+    max-width: 70%;        /* Approx 45% width */
+    background: var(--bg-primary);
+    padding: 0px;
+    border-radius: var(--radius-12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
 
